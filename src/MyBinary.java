@@ -93,15 +93,19 @@ public class MyBinary<K extends Comparable<K>,V> {
     }
     public List<Node> iterator() {
         List<Node> result = new ArrayList<>();
-        inOrderTraver(root, result);
+        inOrderTraverse(root, result);
         return result;
     }
 
-    private void inOrderTraver(Node node, List<Node> result) {
+    private void inOrderTraverse(Node node, List<Node> result) {
         if (node != null) {
-            inOrderTraver(node.left, result);
+            inOrderTraverse(node.left, result);
             result.add(node);
-            inOrderTraver(node.right, result);
+            inOrderTraverse(node.right, result);
         }
+    }
+
+    public boolean containsKey(K key) {
+        return get(key) != null;
     }
 }
